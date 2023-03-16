@@ -4,11 +4,17 @@
     <title>Web APIs Quiz</title>
 </head>
 <body>
+
+<div id = "start-container">
     <h3>View High Scores</h3>
     <h1>Web APIs Quiz Game</h1>
     <p>It's pretty simple: answer as quickly as possible to get a higher score. The time left at the end is your final score. Any incorrect answer knocks 10 seconds off the timer. Good Luck! </p>
-    <button>Start</button></p>
-<h3>Time Left:</h3>
+    <button id = "start-btn">Start</button></p>
+</div>
+
+<h3> Time Left: <span id= "time"></span></h3>
+
+<div id="question-container">
 <h2> Question 1: This is question one</h2>
     <button>Answer 1</button>
     <button>Answer 2</button>
@@ -29,12 +35,19 @@
     <button>Answer 2</button>
     <button>Answer 3</button>
     <button>Answer 4</button>
+</div>   
+
+
+<div class="game-over-container">
 <h2>Game Over!</h2>
 <p>Your final score is: </p> 
 <p>Save your score and play again!</p>  
 <input placeholder="Enter initials"></input>
 <button>Submit</button>
 <button>Play Again</button>
- <script src="script.js"></script>
+</div>
+
+
+ <script src="./assets/script.js"></script>
 </body>
 </html>
