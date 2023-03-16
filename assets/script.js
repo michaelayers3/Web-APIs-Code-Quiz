@@ -15,9 +15,12 @@ function setTime() {
     var timerInterval = setInterval(function() {
         secondsLeft--;
         timeEl.textContent = secondsLeft;
-    if(secondsLeft === 0) {
+    if(secondsLeft <= 0) {
         clearInterval(timerInterval);
-        //Send the user to the game over page//
+        gameOverPage.classList.remove("hide");
+        questionPage.classList.add("hide");
+        timeContainer.classList.add("hide");
+    
     }
     }, 1000);
 }
@@ -30,11 +33,21 @@ startButton.addEventListener("click", function() {
 });
 
 //pages that appear and disappear
-var startPage = document.querySelector("#start-page");
-var questionPage = document.querySelector("#question-page");
-var gameOverPage = document.querySelector("#game-over-page");
+var startPage = document.querySelector("#start-container");
+var questionPage = document.querySelector("#question-container");
+var gameOverPage = document.querySelector("#game-over-container");
+var timeContainer = document.querySelector("#time-container");
 
 startButton.addEventListener("click", function() {
     startPage.classList.add("hide");
+    timeContainer.classList.remove("hide");
     questionPage.classList.remove("hide");
 });
+
+//answers to questions that interact with the timer
+var wronganswerButton = document.querySelector("#wrong-answer-btn");
+wronganswerButton.addEventListener("click", function() {
+        secondsLeft = secondsLeft - 10;
+       
+    });
+

@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Web APIs Quiz</title>
+    <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
 
@@ -12,9 +14,11 @@
     <button id = "start-btn">Start</button></p>
 </div>
 
+<div id = "time-container" class="hide">
 <h3> Time Left: <span id= "time"></span></h3>
+</div>
 
-<div id="question-container">
+<div id="question-container" class="hide">
 <h2> Question 1: This is question one</h2>
     <button>Answer 1</button>
     <button>Answer 2</button>
@@ -34,11 +38,11 @@
     <button>Answer 1</button>
     <button>Answer 2</button>
     <button>Answer 3</button>
-    <button>Answer 4</button>
+    <button id = "wrong-answer-btn">Answer 4</button>
 </div>   
 
 
-<div class="game-over-container">
+<div id="game-over-container" class="hide">
 <h2>Game Over!</h2>
 <p>Your final score is: </p> 
 <p>Save your score and play again!</p>  
