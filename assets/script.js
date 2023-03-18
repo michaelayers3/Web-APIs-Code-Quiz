@@ -12,17 +12,7 @@ var secondsStart = 100;
 var scoreEl = document.querySelector("#score");
 var timerInterval;
 
-// function setTime() {
 
-//    var timerInterval= setInterval(function() {
-//         secondsStart--;
-//         timeEl.textContent = secondsStart;
-//     }, 1000);
-
-//     if(secondsStart <= 0) {
-//         clearInterval(timerInterval);
-//     }
-// }
 
 function setTime() {
      timerInterval = setInterval(function() {
@@ -34,15 +24,7 @@ function setTime() {
 function stopTime() {
     clearInterval(timerInterval);
    scoreEl.textContent = secondsStart;
-
-
 }
-
-
-//Stop time and record time
-
-
-
 
 //pages that appear and disappear
 var startButton = document.querySelector("#start-btn");
@@ -102,8 +84,9 @@ question4Page.addEventListener("click", function() {
     question4Page.classList.add("hide");
     gameOverPage.classList.remove("hide");
     questionPage.classList.add("hide");
-    // timeContainer.classList.add("hide");
-        stopTime();
+    timeContainer.classList.add("hide");
+     stopTime();
+    
 });
 
 
@@ -123,32 +106,52 @@ var submitButton = document.querySelector("#submit-btn");
 var highScores = document.querySelector("#high-scores");
 var initialsInput = document.querySelector("#initials");
 
+var highScoresList= [];
+
 function renderHighScores() {
-    var li = document.createElement("li");
-    li.textContent = initials;
-    li.setAttribute("data-index", i);
-    highScoreContainer.appendChild(li);
+    highScores.textContent = "";
+    for (var i = 0; i < highScoresList.length; i++) {
+        var highScore = highScoresList[i];
+        var li = document.createElement("li");
+        li.textContent = highScore.i + " " + highScore.s;
+        li.setAttribute("data-index", i);
+        highScores.appendChild(li);
+    }
 }
 
-displayHighScores();
+function init () {
+    var storedHighScores = JSON.parse(localStorage.getItem("highScoresList"));
+    if (storedHighScores !== null) {
+        highScoresList = storedHighScores;
+    }
+    renderHighScores();
+}
 
+function storehighScores() {
+    localStorage.setItem("highScoresList", JSON.stringify(highScoresList));
+}
 submitButton.addEventListener("click", function() {
     var saveInfo = {
-        initials: initialsInput.value,
-        score: scoreEl.textContent
-    }
-    var initials = initialsInput.value
-    //add if no initials are entered
-     localStorage.setItem("initials", initials)
-     displayHighScores();
+        i: initialsInput.value,
+        s: scoreEl.textContent,};
+    highScoresList.push(saveInfo);
+    storehighScores();
+    renderHighScores();
+        // localStorage.setItem("saveinfo", JSON.stringify(saveInfo));
 });
+init();
+
+
+
 
 
 function displayHighScores() {
-    var initials = localStorage.getItem("initials");
-    highScores.textContent = initials;
-}
-
+    var storedHighScores = JSON.parse(localStorage.getItem("highScoresList"));
+    if (storedHighScores !== null) {
+        highScoresList = storedHighScores;
+        highScores.textContent
+    }
+};
 displayHighScores();
 
 
