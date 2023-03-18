@@ -9,21 +9,51 @@
 //Timer
 var timeEl = document.querySelector("#time");
 var secondsStart = 100;
+var scoreEl = document.querySelector("#score");
+var timerInterval;
 
 function setTime() {
 
-    var timerInterval = setInterval(function() {
+    var timerInterval= setInterval(function() {
         secondsStart--;
         timeEl.textContent = secondsStart;
-    if(secondsStart <= 0) {
-        // clearInterval(timerInterval);
-        gameOverPage.classList.remove("hide");
-        questionPage.classList.add("hide");
-        timeContainer.classList.add("hide");
-    
-    }
     }, 1000);
+
+    if(secondsStart <= 0) {
+        clearInterval(timerInterval);
+    }
 }
+
+//Stop time and record time
+
+var scoreEl= document.querySelector("#score");
+
+function saveScore() {
+    var score = clearInterval (function() {
+        clearInterval(timerInterval);
+    scoreEl.textContent = score;
+    localStorage.setItem("score", score);
+    });
+}
+
+ 
+
+
+// function setTime() {
+
+//     var timerInterval = setInterval(function() {
+//         secondsStart--;
+//         timeEl.textContent = secondsStart;
+//     if(secondsStart <= 0) {
+        
+//         clearInterval(timerInterval);
+//         gameOverPage.classList.remove("hide");
+//         questionPage.classList.add("hide");
+//         timeContainer.classList.add("hide");
+    
+//     }
+//     }, 1000);
+// }
 
 //button to start game
 var startButton = document.querySelector("#start-btn");
@@ -50,16 +80,52 @@ var question1Page = document.querySelector("#q1-container");
 var question2Page = document.querySelector("#q2-container");
 var question3Page = document.querySelector("#q3-container");
 var question4Page = document.querySelector("#q4-container");
+var rightanswerButton = document.querySelector("#right-answer-btn");
+// rightanswerButton.addEventListener("click", function() {
+//         secondsStart = secondsStart + 10;
+//     });
+question1Page.addEventListener("click", function() {
+    if (event.target.matches("#right-answer-btn")) {
+        secondsStart = secondsStart + 10;
+    }
+    secondsStart = secondsStart - 10;
+    question1Page.classList.add("hide");
+    question2Page.classList.remove("hide");
+});
+
+question2Page.addEventListener("click", function() {
+    if (event.target.matches("#right-answer-btn")) {
+        secondsStart = secondsStart + 10;
+    }
+    secondsStart = secondsStart - 10;
+    question2Page.classList.add("hide");
+    question3Page.classList.remove("hide");
+});
+
+question3Page.addEventListener("click", function() {
+    if (event.target.matches("#right-answer-btn")) {
+        secondsStart = secondsStart + 10;
+    }
+    secondsStart = secondsStart - 10;
+    question3Page.classList.add("hide");
+    question4Page.classList.remove("hide");
+});
+
+question4Page.addEventListener("click", function() {
+    if (event.target.matches("#right-answer-btn")) {
+        secondsStart = secondsStart + 10;
+    }
+    secondsStart = secondsStart - 10;
+    question4Page.classList.add("hide");
+    gameOverPage.classList.remove("hide");
+    questionPage.classList.add("hide");
+    timeContainer.classList.add("hide");
+
+});
 
 
 
 
-
-//answers to questions that interact with the timer
-var wronganswerButton = document.querySelector("#wrong-answer-btn");
-wronganswerButton.addEventListener("click", function() {
-        secondsStart = secondsStart - 10;
-    });
 
 //score that is saved to local storage
 
@@ -80,6 +146,7 @@ function renderHighScores() {
     highScoreContainer.appendChild(li);
 }
 
+displayHighScores();
 
 submitButton.addEventListener("click", function() {
     var initials = initialsInput.value
