@@ -160,3 +160,10 @@ displayHighScores();
     playAgainButton.addEventListener("click", function() {
         location.reload();
     });
+
+    var clear = document.querySelector("#clear");
+    clear.addEventListener("click", function() {
+        localStorage.clear("highScoresList");
+        highScores.textContent = "";
+        location.reload();
+    });
