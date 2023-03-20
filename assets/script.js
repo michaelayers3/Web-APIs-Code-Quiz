@@ -113,7 +113,7 @@ function renderHighScores() {
     for (var i = 0; i < highScoresList.length; i++) {
         var highScore = highScoresList[i];
         var li = document.createElement("li");
-        li.textContent = highScore.i + " " + highScore.s;
+        li.textContent = highScore.i + "-" + highScore.s;
         li.setAttribute("data-index", i);
         highScores.appendChild(li);
     }
@@ -137,7 +137,6 @@ submitButton.addEventListener("click", function() {
     highScoresList.push(saveInfo);
     storehighScores();
     renderHighScores();
-        // localStorage.setItem("saveinfo", JSON.stringify(saveInfo));
 });
 init();
 

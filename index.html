@@ -7,21 +7,21 @@
 </head>
 <body>
 
-<div id = "start-container">
+<div id = "start-container" class="start-container" >
     <!-- <h3>View High Scores</h3> -->
     <h1>Web APIs Quiz Game</h1>
     <p>It's pretty simple: answer as quickly as possible to get a higher score. The time left at the end is your final score. Any incorrect answer knocks 10 seconds off the timer. Good Luck! </p>
-    <button id = "start-btn">Start</button></p>
+    <button id = "start-btn" class="start-btn">Start</button>
 </div>
 
-<div id = "time-container" class="hide">
-<h3> Time Left: <span id= "time"></span></h3>
+<div id = "time-container" class="time-container hide">
+<h3> Time Left: <span id= "time" class="counter"></span></h3>
 </div>
 
 
-<div id="question-container" class="hide">
+<div id="question-container" class="question-container hide">
 
-<div id="q1-container" class="hide">
+<div id="q1-container" class="question-card hide">
 <h2> Question 1: This is question one</h2>
    
     <button>Answer A</button>
@@ -31,9 +31,7 @@
     
 </div>
 
-
-
-<div id="q2-container" class="hide">
+<div id="q2-container" class="question-card hide">
 <h2> Question 2: This is question two</h2>
     
     <button>Answer A</button>
@@ -41,35 +39,35 @@
     <button id="right-answer-btn">Answer C</button>
     <button>Answer D</button>
 </div>
-</div>
-<div id="q3-container" class="hide">
+
+<div id="q3-container" class="question-card hide">
 <h2> Question 3: This is question three</h2>
     <button>Answer A</button>
     <button>Answer B</button>
     <button id="right-answer-btn">Answer C</button>
     <button>Answer D</button>
 </div>
-<div id="q4-container" class="hide">
+<div id="q4-container" class="question-card hide">
 <h2> Question 4: This is question four</h2>
     <button>Answer A</button>
     <button>Answer B</button>
     <button id = "right-answer-btn">Answer C</button>
     <button>Answer D</button>
 </div>
-</div>   
-
-
-<div id="game-over-container" class="hide">
+  
+</div>
+<div id="game-over-container" class=" game-over-container hide">
 <h2>Game Over!</h2>
-<p>Your final score is: <span id="score"></span> </p> 
+<h3>Your final score is: </h3>
+<p> <span id="score" class ="score"> </span>  </p> 
 <p>Save your score and play again!</p>  
 <input id = "initials" placeholder="Enter initials"></input>
 <button id = "submit-btn">Submit</button>
 <button id = "play-again-btn">Play Again</button>
 
 <div id = "high-scores-container"> 
-<p> High Scores:<p>
-<div id="high-scores"></div>
+<h2> High Scores:</h2>
+<div id="high-scores" class="high-scores"></div>
 </div>
 
 </div>
