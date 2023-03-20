@@ -18,12 +18,24 @@ function setTime() {
      timerInterval = setInterval(function() {
         secondsStart--;
         timeEl.textContent = secondsStart;
+        if (secondsStart <= 0) {
+            timeEl.textContent = 0;
+        gameOverPage.classList.remove("hide");
+        questionPage.classList.add("hide");
+        timeContainer.classList.add("hide");
+            scoreEl.textContent = 0;
+            stopTime();
+        }
     }, 1000);
+   
 }
 
 function stopTime() {
     clearInterval(timerInterval);
    scoreEl.textContent = secondsStart;
+   if (secondsStart <= 0) {
+    scoreEl.textContent = 0;
+   }
 }
 
 //pages that appear and disappear
