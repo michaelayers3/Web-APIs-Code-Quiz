@@ -177,6 +177,12 @@ h1 {
     cursor: pointer;
 }
 
+.game-over-container button:hover {
+    background-color: rgb(12, 12, 161);
+    font-weight: bold;
+    cursor: pointer;
+}
+
 .high-score-container {
     display: flex;
     flex-direction: column;
@@ -217,8 +223,8 @@ h1 {
     margin: 10px;
    
   }
-/* .question-card button:hover {
-    background-color: rgb(28, 7, 85);
+.question-card button:hover {
+    background-color: rgb(12, 12, 161);
     color: white;
     font-size: 1em;
     font-weight: bold;
@@ -227,7 +233,7 @@ h1 {
     padding: 20px;
     margin: 10px;
     cursor: pointer;
-} */
+}
 
 .hide {
     display: none;

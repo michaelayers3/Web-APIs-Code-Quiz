@@ -58,11 +58,38 @@ var question1Page = document.querySelector("#q1-container");
 var question2Page = document.querySelector("#q2-container");
 var question3Page = document.querySelector("#q3-container");
 var question4Page = document.querySelector("#q4-container");
-var rightanswerButton = document.querySelector("#right-answer-btn");
+var rightanswerButton = document.querySelector(".right-answer-btn");
 
 
-question1Page.addEventListener("click", function() {
-    if (event.target.matches("#right-answer-btn")) {
+// Worked with tutor after initial code was written, showed me a more efficient way to do this.
+
+// var questionArray = [question1Page, question2Page, question3Page, question4Page];
+// for (var i = 0; i< questionArray.length; i++) {
+//     var currentQuestion= questionArray[i];
+//     if(questionArray[i+1]){
+//         var nextQuestion= questionArray[i+1]
+//     }
+//     currentQuestion.addEventListener("click", function(event) {
+//         if (event.target.contains("right-answer-btn")) {
+//             secondsStart = secondsStart + 10;
+//         }
+//         secondsStart = secondsStart - 10;
+//        currentQuestion.classList.add("hide");
+//        if(nextQuestion){
+//         nextQuestion.classList.remove("hide");
+//        }
+//     });
+// }
+
+
+
+
+
+question1Page.addEventListener("click", function(event) {
+    if(!event.target.classList.contains("response")){
+        return null;
+    }
+    if (event.target.classList.contains("right-answer-btn")) {
         secondsStart = secondsStart + 10;
     }
     secondsStart = secondsStart - 10;
@@ -70,8 +97,11 @@ question1Page.addEventListener("click", function() {
     question2Page.classList.remove("hide");
 });
 
-question2Page.addEventListener("click", function() {
-    if (event.target.matches("#right-answer-btn")) {
+question2Page.addEventListener("click", function(event) {
+    if(!event.target.classList.contains("response")){
+        return null;
+    }
+    if (event.target.classList.contains("right-answer-btn")) {
         secondsStart = secondsStart + 10;
     }
     secondsStart = secondsStart - 10;
@@ -79,8 +109,11 @@ question2Page.addEventListener("click", function() {
     question3Page.classList.remove("hide");
 });
 
-question3Page.addEventListener("click", function() {
-    if (event.target.matches("#right-answer-btn")) {
+question3Page.addEventListener("click", function(event) {
+    if(!event.target.classList.contains("response")){
+        return null;
+    }
+    if (event.target.classList.contains("right-answer-btn")) {
         secondsStart = secondsStart + 10;
     }
     secondsStart = secondsStart - 10;
@@ -88,8 +121,11 @@ question3Page.addEventListener("click", function() {
     question4Page.classList.remove("hide");
 });
 
-question4Page.addEventListener("click", function() {
-    if (event.target.matches("#right-answer-btn")) {
+question4Page.addEventListener("click", function(event) {
+    if(!event.target.classList.contains("response")){
+        return null;
+    }
+    if (event.target.classList.contains("right-answer-btn")) {
         secondsStart = secondsStart + 10;
        }
     secondsStart = secondsStart - 10;
